@@ -7,8 +7,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import type { ThemeMode } from "../constants/theme";
-import getCustomTheme from "../constants/theme";
+import type { ThemeMode } from "../utils/theme";
+import getCustomTheme from "../utils/theme";
 
 interface CustomThemeProviderProps {
   children: ReactNode;

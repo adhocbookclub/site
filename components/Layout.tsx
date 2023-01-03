@@ -1,5 +1,5 @@
+import { Box, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
 import Head from "next/head";
 import { ReactNode } from "react";
 import Header from "./Header";
@@ -24,16 +24,30 @@ const Layout = (props: Props) => {
       <Container
         maxWidth="md"
         sx={{
+          display: "flex",
+          flexDirection: "column",
           height: "100vh",
           paddingY: 4,
-          bgcolor: (theme) => theme.palette.background.default,
+          bgcolor: "background.default",
         }}
       >
         <Header />
 
-        <Divider sx={{ marginY: 4 }} />
+        <Typography
+          variant="h3"
+          sx={{
+            alignSelf: "flex-start",
+            borderBottom: (theme) =>
+              `4px solid ${theme.palette.secondary.main}`,
+            marginY: 6,
+          }}
+        >
+          {title}
+        </Typography>
 
-        <main>{children}</main>
+        <Box component="main" sx={{ flex: "auto" }}>
+          {children}
+        </Box>
       </Container>
     </>
   );

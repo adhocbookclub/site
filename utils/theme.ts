@@ -1,10 +1,9 @@
-import { amber, teal } from "@mui/material/colors";
+import { amber, grey, teal } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 import { Fira_Sans } from "@next/font/google";
+import type { ThemeMode } from "./types";
 
-export type ThemeMode = "light" | "dark";
-
-export const firaSans = Fira_Sans({
+const firaSans = Fira_Sans({
   weight: ["300", "400", "500", "700"],
   display: "swap",
   subsets: ["latin"],
@@ -17,6 +16,9 @@ const getCustomTheme = (mode: ThemeMode) =>
       mode,
       primary: teal,
       secondary: amber,
+      background: {
+        default: mode === "dark" ? grey[800] : "#fff",
+      },
     },
     typography: {
       fontFamily: firaSans.style.fontFamily,
